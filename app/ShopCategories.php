@@ -19,7 +19,7 @@ class ShopCategories extends Model
                 ->where('shop_id','=',(int)$shop_id)
                 ->delete();
             foreach ($data as $d){
-                $shop_details[] = ShopCategories::insert(
+                $shop_details = ShopCategories::insert(
                     [
                         'shop_id' => $shop_id,
                         'category_name' => $d,
@@ -30,7 +30,7 @@ class ShopCategories extends Model
         }else{
 
             foreach ($data as $d){
-                $shop_details[] = ShopCategories::insert(
+                $shop_details = ShopCategories::insert(
                     [
                         'shop_id' => $shop_id,
                         'category_name' => $d,

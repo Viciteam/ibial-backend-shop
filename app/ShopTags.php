@@ -19,7 +19,8 @@ class ShopTags extends Model
                 ->where('shop_id','=',(int)$shop_id)
                 ->delete();
             foreach ($data as $d){
-                $shop_details[] = ShopTags::insert(
+
+                $shop_details = ShopTags::insert(
                     [
                         'shop_id' => $shop_id,
                         'tag_name' => $d,
@@ -30,7 +31,7 @@ class ShopTags extends Model
         }else{
 
             foreach ($data as $d){
-                $shop_details[] = ShopTags::insert(
+                $shop_details = ShopTags::insert(
                     [
                         'shop_id' => $shop_id,
                         'tag_name' => $d,

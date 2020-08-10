@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Shop extends Model{
     protected $table = 'shop';
     protected $fillable = [
-        'name', 'is_private', 'is_visible','status_id','views','created_by'
+        'name', 'is_private', 'is_visible','status_id','views','created_by','business_id'
     ];
     public function getShopDetails($shop_id){
 
@@ -33,6 +33,7 @@ class Shop extends Model{
         return $res;
     }
     public function createShop($data){
+
         $exists = Shop::select('*')
             ->where('name','=',$data->get('name'))
             ->exists();
@@ -49,7 +50,8 @@ class Shop extends Model{
                 'is_visible' => $data->get('is_visible'),
                 'status_id' => 5,
                 'views' => 0,
-                'created_by' => $data->get('user_id')
+                'created_by' => $data->get('user_id'),
+                'business_id' => $data->get('business_id')
             ]);
             $res = array(
                 'shop_details' => $create_shop,
@@ -234,7 +236,7 @@ class Shop extends Model{
                 ->where('id','=',(int)$data->get('id'))
                 ->first();
             if($data->has('file')){
-                $fileName = $data->get('id')."_profile.".$data->file->extension();
+                $fileName = $data->get('id')."shop.".$data->file->extension();
                 $data->file->move(public_path('uploads'), $fileName);
                 $shop_details->profile_picture = $fileName;
             }
@@ -277,7 +279,7 @@ class Shop extends Model{
                 ->where('id','=',(int)$data->get('id'))
                 ->first();
             if($data->has('file')){
-                $fileName = $data->get('id')."_cover_photo.".$data->file->extension();
+                $fileName = $data->get('id')."_shop_cover_photo.".$data->file->extension();
                 $data->file->move(public_path('uploads'), $fileName);
                 $shop_details->cover_photo = $fileName;
             }
@@ -307,56 +309,5 @@ class Shop extends Model{
         }
 
 
-    }
-    public function addCategory($shop_id){
-        $shop_details =array();
-        $exists = Shop::select('*')
-            ->where('id','=',$shop_id)
-            ->exists();
-
-        if($exists){
-            $shop_details = Shop::select('*')
-                ->where('id','=',(int)$shop_id)
-                ->first();
-            $shop_details->views = $shop_details->views + 1;
-            if($shop_details->isDirty()){
-                $shop_details = $shop_details->save();
-                $shop_details = $shop_details;
-            }else{
-                $shop_details = false;
-
-            }
-        }else{
-            $shop_details = false;
-
-        }
-
-        $res = array(
-            'shop_details' => $shop_details,
-        );
-        return $res;
-    }
-    public function getCategoryDetails($shop_id){
-
-        $shop_details = Shop::select('*')
-            ->where('id','=',(int)$shop_id)
-            ->exists();
-        if($shop_details){
-            $shop_details = Shop::select('*')
-                ->where('id','=',(int)$shop_id)
-                ->first();
-            $res = array(
-                'shop_details' => $shop_details,
-                'message'=> 'Success'
-            );
-
-        }else{
-            $res = array(
-                'shop_details' => "",
-                'message'=> 'Error. Shop not found'
-            );
-        }
-
-        return $res;
     }
 }
