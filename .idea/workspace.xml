@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="25a5352b-9068-4721-90df-334f5594f954" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.env.example" beforeDir="false" afterPath="$PROJECT_DIR$/.env.example" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Shop.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Shop.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ShopCategories.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/ShopCategories.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ShopTags.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/ShopTags.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -129,7 +127,7 @@
   <component name="ProjectId" id="1ft0uha5UfYKdVH9gwC3vbQqURp" />
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="D:/HKD/hkexec" />
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RunDashboard">
@@ -161,7 +159,9 @@
       <option name="presentableId" value="Default" />
       <updated>1597022305566</updated>
       <workItem from="1597022306781" duration="6790000" />
-      <workItem from="1597031611093" duration="3538000" />
+      <workItem from="1597031611093" duration="3763000" />
+      <workItem from="1597212623868" duration="36000" />
+      <workItem from="1599055216203" duration="12000" />
     </task>
     <servers />
   </component>
